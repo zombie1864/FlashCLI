@@ -1,0 +1,5 @@
+pytest
+pytest-cov
+pytest-mock
+click>=8.0.1
+# pip install -r requirements.txt
