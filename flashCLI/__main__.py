@@ -63,7 +63,7 @@ def addto(db_name:str) -> None:
             return click.echo(f'\nDatabase not found. \nPlease run, "python3 -m flashCLI init {db_name}"\n')
         else:
             click.echo(backend_resp)
-        session = input('\nDo you wish to add another flashcard?\nAdd More?::[y/N]: ').upper()
+        session = input('\nDo you wish to add another flashcard?\n' + click.style('Add More?::', fg='bright_yellow') + '[y/N]: ').upper()
     click.echo(f'\nThank you, your {db_name} flashcard set has been successfully updated\n')
 
 

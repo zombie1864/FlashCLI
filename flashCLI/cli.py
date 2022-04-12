@@ -25,8 +25,8 @@ def add_to(db_name:str) -> Union[str, int]:
     controller_API:Union[utils.FlashcardController, int] = get_flashcard_controller_API(db_name)
     if controller_API == FILE_ERR_CODE_2:
         return FILE_ERR_CODE_2
-    qstn_input = input('\nPlease input flashcard question: ')
-    ans_input = input('\nPlease input the answer to your question: ')
+    qstn_input = input('\nPlease input flashcard ' + click.style('Qstn:: ', fg='magenta'))
+    ans_input = input('\nPlease input ' + click.style('Ans::>> ', fg='cyan'))
     flashcard, COMM_CODE = controller_API.add(qstn_input, ans_input)
     if COMM_CODE == SUCC_CODE_0:
         return f'\nFlashcard: {flashcard} \nWas added to {db_name} set'
@@ -141,7 +141,7 @@ def edit(db_name:str):
     if _id == 'e':
         return click.echo('\nCancel success\n')
     flashcard = controller_API.get_flashcard(_id)
-    click.echo(click.style('\n\tQstn:: ', fg='bright_yellow') + f'{flashcard[0]}')
+    click.echo(click.style('\n\tQstn:: ', fg='bright_yellow') + f'{flashcard[0]}\n')
     click.echo(click.style('\tAns::>> ', fg='bright_yellow') + f'{flashcard[1]}\n')
     click.echo('What would you like to edit?')
     valid_input_resp = False 
