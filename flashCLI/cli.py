@@ -109,7 +109,7 @@ def begin_study_session(db_name, flashcards_dataset) -> None:
         flashcard_selected:Tuple[int,Tuple[str]] = random_select_from(flashcards_dataset)
         click.echo(
             click.style("\n[Qstn]:\n", fg='magenta', bold=True) + 
-            f'\t{flashcard_selected[1][0]}\n' #NOTE use namedtuple 
+            f'\t{format(flashcard_selected[1][0])}\n' #NOTE use namedtuple 
         )
         ui_ans = input('[Your answer]: ')
         if ui_ans == 'e':
@@ -117,7 +117,7 @@ def begin_study_session(db_name, flashcards_dataset) -> None:
         click.echo(
             click.style("\n[Result]:\n", fg='bright_blue') + 
             click.style("\tYour Answer::>> ", fg='cyan') + f'{ui_ans}\n' + 
-            click.style("\tCorrect Answer::>> ", fg='cyan') + f'{flashcard_selected[1][1]}\n' 
+            click.style("\tCorrect Answer::>> ", fg='cyan') + f'{format(flashcard_selected[1][1])}\n' 
         )
         is_succ_attempt = input('Do results match?\nSuccess::[y/N]: ').lower()
         if is_succ_attempt == 'y':
